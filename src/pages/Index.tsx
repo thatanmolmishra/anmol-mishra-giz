@@ -7,21 +7,19 @@ import Hero from '../components/Hero';
 import About from '../components/About';
 import Projects from '../components/Projects';
 import Achievements from '../components/Achievements';
-import Contributions from '../components/Contributions';
+import Experience from '../components/Experience';
 import Resume from '../components/Resume';
 import Footer from '../components/Footer';
-import LeafCursor from '../components/LeafCursor';
 
 const Index = () => {
   return (
     <div className="min-h-screen bg-white">
-      <LeafCursor />
       <Header />
       <Hero />
       <About />
+      <Experience />
       <Projects />
       <Achievements />
-      <Contributions />
       <Resume />
       <Footer />
     </div>
