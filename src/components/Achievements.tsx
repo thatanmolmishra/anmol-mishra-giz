@@ -1,13 +1,12 @@
 
 import { motion } from 'framer-motion';
-import { Trophy, Award, Medal } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
 
 const achievements = [
   {
-    icon: <Trophy className="h-8 w-8 text-yellow-500" />,
+    image: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&h=600",
     title: "First Achievement",
     description: "Description of your first major achievement",
     organization: "Tech Excellence Awards",
@@ -18,7 +17,7 @@ const achievements = [
     ]
   },
   {
-    icon: <Award className="h-8 w-8 text-green-600" />,
+    image: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&h=600",
     title: "Second Achievement",
     description: "Description of your second major achievement",
     organization: "Digital Innovation Hub",
@@ -29,7 +28,7 @@ const achievements = [
     ]
   },
   {
-    icon: <Medal className="h-8 w-8 text-blue-500" />,
+    image: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&h=600",
     title: "Third Achievement",
     description: "Description of your third major achievement",
     organization: "Global Tech Summit",
@@ -74,23 +73,29 @@ const Achievements = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className="bg-white p-6 rounded-lg shadow-md border border-green-100 cursor-pointer hover:shadow-lg transition-all hover:-translate-y-1"
+                  className="group bg-white rounded-lg shadow-md border border-green-100 cursor-pointer hover:shadow-lg transition-all hover:-translate-y-1 overflow-hidden"
                 >
-                  <div className="flex items-center justify-center mb-4">
-                    {achievement.icon}
-                  </div>
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="relative h-48 overflow-hidden">
                     <img 
-                      src={achievement.logo}
-                      alt={achievement.organization}
-                      className="w-10 h-10 rounded-full object-cover"
+                      src={achievement.image}
+                      alt={achievement.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
-                    <div>
-                      <h3 className="text-xl font-medium text-green-700">{achievement.title}</h3>
-                      <p className="text-sm text-gray-600">{achievement.organization}</p>
-                    </div>
                   </div>
-                  <p className="text-gray-600 text-center">{achievement.description}</p>
+                  <div className="p-6">
+                    <div className="flex items-center gap-3 mb-4">
+                      <img 
+                        src={achievement.logo}
+                        alt={achievement.organization}
+                        className="w-10 h-10 rounded-full object-cover"
+                      />
+                      <div>
+                        <h3 className="text-xl font-medium text-green-700">{achievement.title}</h3>
+                        <p className="text-sm text-gray-600">{achievement.organization}</p>
+                      </div>
+                    </div>
+                    <p className="text-gray-600">{achievement.description}</p>
+                  </div>
                 </motion.div>
               </DialogTrigger>
               <DialogContent className="max-w-4xl">

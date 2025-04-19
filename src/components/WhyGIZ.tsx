@@ -1,6 +1,5 @@
 
 import { motion } from 'framer-motion';
-import ThreeScene from './ThreeScene';
 
 const WhyGIZ = () => {
   return (
@@ -15,7 +14,7 @@ const WhyGIZ = () => {
         >
           Why I Want to Join GIZ
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 gap-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -41,15 +40,6 @@ const WhyGIZ = () => {
                 I am excited about the opportunity to contribute to projects that have meaningful global impact.
               </p>
             </div>
-          </motion.div>
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-            viewport={{ once: true }}
-            className="h-[400px] relative"
-          >
-            <ThreeScene />
           </motion.div>
         </div>
       </div>
