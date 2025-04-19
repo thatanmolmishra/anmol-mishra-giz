@@ -1,6 +1,5 @@
 
 import { motion } from 'framer-motion';
-import { Earth } from 'lucide-react';
 import ThreeScene from './ThreeScene';
 
 const WhyGIZ = () => {

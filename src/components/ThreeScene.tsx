@@ -1,17 +1,18 @@
 
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere } from '@react-three/drei';
+import { OrbitControls } from '@react-three/drei';
 
 const EarthModel = () => {
   return (
-    <Sphere args={[1, 32, 32]}>
+    <mesh>
+      <sphereGeometry args={[1, 32, 32]} />
       <meshStandardMaterial 
         color="#4ade80"
         metalness={0.4}
         roughness={0.7}
       />
-    </Sphere>
+    </mesh>
   );
 };
 
