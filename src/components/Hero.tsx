@@ -1,7 +1,5 @@
 
-import { useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
-import ThreeScene from './ThreeScene';
 
 const Hero = () => {
   return (
@@ -28,13 +26,16 @@ const Hero = () => {
             </a>
           </div>
         </motion.div>
+        
         <motion.div
           initial={{ opacity: 0, scale: 0.8 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8 }}
           className="flex justify-center items-center"
         >
-          <ThreeScene />
+          <div className="bg-green-50 rounded-full w-64 h-64 flex items-center justify-center">
+            <div className="text-6xl text-green-600">🍃</div>
+          </div>
         </motion.div>
       </div>
     </section>

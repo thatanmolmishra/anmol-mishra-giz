@@ -1,7 +1,6 @@
 
-import { useRef, useEffect } from 'react';
+import { useRef } from 'react';
 import { useFrame } from '@react-three/fiber';
-import { useGLTF } from '@react-three/drei';
 import * as THREE from 'three';
 
 // This is a simplified leaf model since we don't have an actual GLTF file
@@ -18,10 +17,11 @@ const LeafModel = (props: any) => {
 
   return (
     <mesh
-      {...props}
       ref={meshRef}
       castShadow
       receiveShadow
+      position={props.position || [0, 0, 0]}
+      scale={props.scale || 1}
     >
       <sphereGeometry args={[1, 32, 32]} />
       <meshStandardMaterial color="#4ade80" roughness={0.5} metalness={0.2} />
