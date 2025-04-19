@@ -1,8 +1,7 @@
 
 import { Suspense } from 'react';
 import { Canvas } from '@react-three/fiber';
-import { Environment, OrbitControls, Sphere } from '@react-three/drei';
-import * as THREE from 'three';
+import { OrbitControls, Sphere } from '@react-three/drei';
 
 const EarthModel = () => {
   return (
@@ -11,7 +10,6 @@ const EarthModel = () => {
         color="#4ade80"
         metalness={0.4}
         roughness={0.7}
-        normalScale={new THREE.Vector2(0.15, 0.15)}
       />
     </Sphere>
   );
@@ -26,7 +24,6 @@ const ThreeScene = () => {
           <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} castShadow />
           <EarthModel />
           <OrbitControls enableZoom={false} autoRotate autoRotateSpeed={0.5} />
-          <Environment preset="city" />
         </Suspense>
       </Canvas>
     </div>

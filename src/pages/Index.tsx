@@ -1,3 +1,4 @@
+
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -38,7 +39,7 @@ const Index = () => {
   return (
     <motion.div 
       ref={containerRef}
-      className="min-h-screen bg-white overflow-hidden"
+      className="min-h-screen bg-white overflow-hidden relative"
     >
       {/* Fixed background with parallax effect */}
       <motion.div 

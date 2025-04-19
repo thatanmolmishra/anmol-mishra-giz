@@ -1,9 +1,7 @@
 
 import { motion } from 'framer-motion';
 import { Earth } from 'lucide-react';
-import { Canvas } from '@react-three/fiber';
-import { OrbitControls, Sphere } from '@react-three/drei';
-import * as THREE from 'three';
+import ThreeScene from './ThreeScene';
 
 const WhyGIZ = () => {
   return (
@@ -52,23 +50,7 @@ const WhyGIZ = () => {
             viewport={{ once: true }}
             className="h-[400px] relative"
           >
-            <Canvas>
-              <ambientLight intensity={0.5} />
-              <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} />
-              <Sphere args={[2, 32, 32]}>
-                <meshStandardMaterial
-                  color="#4ade80"
-                  metalness={0.4}
-                  roughness={0.7}
-                  normalScale={new THREE.Vector2(0.15, 0.15)}
-                />
-              </Sphere>
-              <OrbitControls
-                enableZoom={false}
-                autoRotate
-                autoRotateSpeed={0.5}
-              />
-            </Canvas>
+            <ThreeScene />
           </motion.div>
         </div>
       </div>
