@@ -1,8 +1,30 @@
 
 import { motion } from 'framer-motion';
 import { Download } from 'lucide-react';
+import { useToast } from "@/hooks/use-toast";
 
 const Resume = () => {
+  const { toast } = useToast();
+
+  const handleDownload = () => {
+    // Create a dummy PDF download
+    const link = document.createElement('a');
+    link.href = 'data:application/pdf;base64,JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvTGFuZyhlbi1VUykgL1N0cnVjdFRyZWVSb290IDMwIDAgUi9NYXJrSW5mbzw8L01hcmtlZCB0cnVlPj4vTWV0YWRhdGEgOTAgMCBSL1ZpZXdlclByZWZlcmVuY2VzIDkxIDAgUj4+DQplbmRvYmo=';
+    link.download = 'anmol_mishra_resume.pdf';
+    
+    toast({
+      title: "Resume downloading",
+      description: "Your resume will begin downloading momentarily.",
+    });
+
+    // Trigger click after a short delay to show the toast
+    setTimeout(() => {
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    }, 1000);
+  };
+
   return (
     <section id="resume" className="py-20 bg-green-50">
       <div className="container text-center">
@@ -26,13 +48,13 @@ const Resume = () => {
           <p className="text-gray-600 mb-8">
             Download my resume to learn more about my work experience, education, skills, and qualifications.
           </p>
-          <a 
-            href="#" 
+          <button 
+            onClick={handleDownload}
             className="inline-flex items-center gap-2 px-6 py-3 bg-green-600 text-white rounded-full hover:bg-green-700 transition"
           >
             <Download size={18} />
             Download Resume
-          </a>
+          </button>
         </motion.div>
       </div>
     </section>

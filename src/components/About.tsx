@@ -1,5 +1,6 @@
 
 import { motion } from 'framer-motion';
+import PlantAnimation from './PlantAnimation';
 
 const About = () => {
   return (
@@ -37,13 +38,16 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
-            className="grid grid-cols-2 gap-4"
+            className="space-y-6"
           >
-            {["Problem Solving", "Web Development", "UI/UX Design", "Open Source"].map((skill) => (
-              <div key={skill} className="bg-white p-4 rounded-lg shadow-sm border border-green-100">
-                <h3 className="font-medium text-green-700">{skill}</h3>
-              </div>
-            ))}
+            <PlantAnimation />
+            <div className="grid grid-cols-2 gap-4">
+              {["Problem Solving", "Web Development", "UI/UX Design", "Open Source"].map((skill) => (
+                <div key={skill} className="bg-white p-4 rounded-lg shadow-sm border border-green-100">
+                  <h3 className="font-medium text-green-700">{skill}</h3>
+                </div>
+              ))}
+            </div>
           </motion.div>
         </div>
       </div>
