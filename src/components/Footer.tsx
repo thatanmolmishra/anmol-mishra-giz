@@ -1,5 +1,6 @@
 
 import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const Footer = () => {
   return (
@@ -15,16 +16,11 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Quick Links</h3>
             <ul className="space-y-2">
-              {['About', 'Projects', 'Achievements', 'Contributions', 'Resume'].map((item) => (
-                <li key={item}>
-                  <a 
-                    href={`#${item.toLowerCase()}`}
-                    className="text-green-200 hover:text-white transition-colors"
-                  >
-                    {item}
-                  </a>
-                </li>
-              ))}
+              <li><Link to="/" className="text-green-200 hover:text-white transition-colors">Home</Link></li>
+              <li><Link to="/#about" className="text-green-200 hover:text-white transition-colors">About</Link></li>
+              <li><Link to="/#projects" className="text-green-200 hover:text-white transition-colors">Projects</Link></li>
+              <li><Link to="/achievements" className="text-green-200 hover:text-white transition-colors">Achievements</Link></li>
+              <li><Link to="/contact" className="text-green-200 hover:text-white transition-colors">Contact</Link></li>
             </ul>
           </div>
           <div>

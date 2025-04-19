@@ -2,6 +2,8 @@
 import { motion } from 'framer-motion';
 import { Trophy, Award, Medal } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
 
 const achievements = [
   {
@@ -48,11 +50,22 @@ const Achievements = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-800"
+          className="text-3xl md:text-4xl font-bold text-center mb-6 text-green-800"
         >
           Achievements
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          viewport={{ once: true }}
+          className="text-center text-gray-700 max-w-3xl mx-auto mb-12"
+        >
+          Highlights of my professional recognition and awards. Click on each card to see more details.
+        </motion.p>
+        
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
           {achievements.map((achievement, index) => (
             <Dialog key={achievement.title}>
               <DialogTrigger asChild>
@@ -61,7 +74,7 @@ const Achievements = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.2 }}
                   viewport={{ once: true }}
-                  className="bg-white p-6 rounded-lg shadow-sm border border-green-100 cursor-pointer hover:shadow-md transition-shadow"
+                  className="bg-white p-6 rounded-lg shadow-md border border-green-100 cursor-pointer hover:shadow-lg transition-all hover:-translate-y-1"
                 >
                   <div className="flex items-center justify-center mb-4">
                     {achievement.icon}
@@ -110,6 +123,14 @@ const Achievements = () => {
               </DialogContent>
             </Dialog>
           ))}
+        </div>
+        
+        <div className="text-center">
+          <Link to="/achievements">
+            <Button variant="outline" className="bg-white hover:bg-green-50">
+              View All Achievements
+            </Button>
+          </Link>
         </div>
       </div>
     </section>

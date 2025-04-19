@@ -1,6 +1,7 @@
 
 import { motion } from 'framer-motion';
 import PlantAnimation from './PlantAnimation';
+import ThreeScene from './ThreeScene';
 
 const About = () => {
   return (
@@ -32,6 +33,14 @@ const About = () => {
             <p className="text-lg text-gray-700">
               When I'm not coding, you can find me exploring new technologies, contributing to open-source projects, or sharing knowledge with the community.
             </p>
+            
+            <div className="grid grid-cols-2 gap-4">
+              {["Problem Solving", "Web Development", "UI/UX Design", "Open Source"].map((skill) => (
+                <div key={skill} className="bg-white p-4 rounded-lg shadow-sm border border-green-100">
+                  <h3 className="font-medium text-green-700">{skill}</h3>
+                </div>
+              ))}
+            </div>
           </motion.div>
           <motion.div 
             initial={{ opacity: 0, x: 50 }}
@@ -40,14 +49,10 @@ const About = () => {
             viewport={{ once: true }}
             className="space-y-6"
           >
-            <PlantAnimation />
-            <div className="grid grid-cols-2 gap-4">
-              {["Problem Solving", "Web Development", "UI/UX Design", "Open Source"].map((skill) => (
-                <div key={skill} className="bg-white p-4 rounded-lg shadow-sm border border-green-100">
-                  <h3 className="font-medium text-green-700">{skill}</h3>
-                </div>
-              ))}
+            <div className="h-[300px] mb-4 bg-white rounded-lg shadow-md overflow-hidden">
+              <ThreeScene />
             </div>
+            <PlantAnimation />
           </motion.div>
         </div>
       </div>
