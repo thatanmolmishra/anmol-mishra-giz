@@ -1,25 +1,29 @@
 
 import { motion } from 'framer-motion';
 import { Briefcase } from 'lucide-react';
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 
 const experiences = [
   {
     title: "Senior Software Engineer",
     company: "Tech Corp",
     period: "2021 - Present",
-    description: "Led development of multiple web applications using React and Node.js"
+    description: "Led development of multiple web applications using React and Node.js",
+    logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=100&h=100"
   },
   {
     title: "Full Stack Developer",
     company: "Innovation Labs",
     period: "2019 - 2021",
-    description: "Developed and maintained various web applications"
+    description: "Developed and maintained various web applications",
+    logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=100&h=100"
   },
   {
     title: "Junior Developer",
     company: "StartUp Inc",
     period: "2018 - 2019",
-    description: "Worked on frontend development using React"
+    description: "Worked on frontend development using React",
+    logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=100&h=100"
   }
 ];
 
@@ -46,11 +50,17 @@ const Experience = () => {
               viewport={{ once: true }}
               className="bg-white p-6 rounded-lg shadow-md border border-green-100"
             >
-              <div className="flex items-center gap-3 mb-4">
-                <Briefcase className="text-green-600" />
-                <h3 className="text-xl font-semibold text-green-800">{exp.title}</h3>
+              <div className="flex items-center gap-4 mb-4">
+                <img 
+                  src={exp.logo} 
+                  alt={`${exp.company} logo`} 
+                  className="w-12 h-12 rounded-full object-cover"
+                />
+                <div>
+                  <h3 className="text-xl font-semibold text-green-800">{exp.title}</h3>
+                  <p className="text-green-700 font-medium">{exp.company}</p>
+                </div>
               </div>
-              <p className="text-green-700 font-medium mb-2">{exp.company}</p>
               <p className="text-gray-600 mb-4">{exp.period}</p>
               <p className="text-gray-700">{exp.description}</p>
             </motion.div>

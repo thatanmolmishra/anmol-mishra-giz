@@ -1,4 +1,3 @@
-
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
@@ -11,6 +10,7 @@ import Experience from '../components/Experience';
 import Resume from '../components/Resume';
 import ContactForm from '../components/ContactForm';
 import Footer from '../components/Footer';
+import WhyGIZ from '../components/WhyGIZ';
 
 // Animation variants for section transitions
 const sectionVariants = {
@@ -77,6 +77,10 @@ const Index = () => {
         
         <motion.div variants={sectionVariants}>
           <Achievements />
+        </motion.div>
+        
+        <motion.div variants={sectionVariants}>
+          <WhyGIZ />
         </motion.div>
         
         <motion.div variants={sectionVariants}>
