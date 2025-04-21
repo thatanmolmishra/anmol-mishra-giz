@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion';
-import { Briefcase, ArrowRight } from 'lucide-react';
+import { Briefcase } from 'lucide-react';
 
 const experiences = [
   {
@@ -43,56 +43,56 @@ const experiences = [
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-20 bg-gradient-to-br from-green-50 to-green-100 relative">
-      <div className="container">
+    <section id="experience" className="py-14 bg-gradient-to-br from-green-50 to-green-100 relative">
+      <div className="container !max-w-2xl md:!max-w-3xl mx-auto">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.4 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-800"
+          className="text-2xl md:text-3xl font-bold text-center mb-8 text-green-800"
         >
           Experience
         </motion.h2>
         {/* Timeline central line & circles */}
-        <div className="relative flex flex-col items-center pb-6">
-          <div className="absolute left-1/2 transform -translate-x-1/2 w-2 bg-green-300 h-full rounded-full z-0" style={{ top: 56, bottom: 0 }} />
-          <div className="space-y-20 w-full">
+        <div className="relative flex flex-col items-center pb-4">
+          <div className="absolute left-1/2 transform -translate-x-1/2 w-1 bg-green-200 h-full rounded-full z-0" style={{ top: 40, bottom: 0 }} />
+          <div className="space-y-12 w-full">
             {experiences.map((exp, idx) => (
               <motion.div
                 key={idx}
-                initial={{ opacity: 0, y: 50 }}
+                initial={{ opacity: 0, y: 40 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: idx * 0.15 }}
+                transition={{ duration: 0.35, delay: idx * 0.07 }}
                 viewport={{ once: true }}
                 className="relative z-10 group"
               >
                 <div className={`flex flex-col md:flex-row ${idx%2 === 0 ? "md:flex-row" : "md:flex-row-reverse"} items-center md:items-stretch`}>
                   {/* Timeline dot with icon */}
-                  <div className="flex-shrink-0 w-14 flex flex-col items-center">
-                    <div className="w-12 h-12 rounded-full bg-white shadow ring-4 ring-green-400 flex items-center justify-center mb-4 relative z-20 group-hover:scale-105 transition-transform duration-200">
-                      <img src={exp.logo} alt={`${exp.company} logo`} className="w-9 h-9 rounded-full object-cover"/>
+                  <div className="flex-shrink-0 w-12 flex flex-col items-center">
+                    <div className="w-9 h-9 rounded-full bg-white shadow ring-2 ring-green-400 flex items-center justify-center mb-3 relative z-20 group-hover:scale-105 transition-transform duration-200">
+                      <img src={exp.logo} alt={`${exp.company} logo`} className="w-7 h-7 rounded-full object-cover"/>
                     </div>
                     {idx !== experiences.length-1 && (
-                      <div className="flex-1 w-1 bg-green-300 transition-all duration-300" style={{ minHeight: 36, margin: "0 auto" }} />
+                      <div className="flex-1 w-0.5 bg-green-200 transition-all duration-300" style={{ minHeight: 20, margin: "0 auto" }} />
                     )}
                   </div>
-                  <div className="flex-1 bg-white rounded-lg shadow-lg border border-green-100 p-8 mx-4 relative hover:shadow-2xl transition-shadow duration-200">
-                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-3">
+                  <div className="flex-1 bg-white rounded-lg shadow border border-green-100 px-5 py-4 md:px-7 md:py-5 mx-2 md:mx-6 relative hover:shadow-lg transition-shadow duration-200 max-w-full md:max-w-2xl">
+                    <div className="flex flex-col md:flex-row md:items-center justify-between mb-2">
                       <div>
-                        <h3 className="text-xl font-extrabold text-green-900 mb-1">{exp.title}</h3>
+                        <h3 className="text-lg font-bold text-green-900 mb-0.5">{exp.title}</h3>
                         <span className="text-green-700 font-semibold">{exp.company}</span>
                         <span className="mx-2 text-gray-400">/</span>
-                        <span className="text-sm text-gray-600">{exp.period}</span>
+                        <span className="text-xs text-gray-600">{exp.period}</span>
                       </div>
-                      <div className="mt-2 md:mt-0 flex gap-2 text-green-500 items-center animate-fade-in">
-                        <Briefcase className="w-5 h-5" />
+                      <div className="mt-1 md:mt-0 flex gap-2 text-green-500 items-center">
+                        <Briefcase className="w-4 h-4" />
                       </div>
                     </div>
-                    <div className="text-gray-700 mb-2">{exp.description}</div>
-                    <ul className="list-disc pl-6 text-gray-600 text-sm space-y-1">
+                    <div className="text-gray-700 mb-1 text-sm">{exp.description}</div>
+                    <ul className="list-disc pl-5 text-gray-600 text-xs space-y-0.5">
                       {exp.achievements.map((ach, ai) => (
-                        <li key={ai} className="">{ach}</li>
+                        <li key={ai}>{ach}</li>
                       ))}
                     </ul>
                   </div>
