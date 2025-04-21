@@ -46,9 +46,17 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center"
+            className="flex items-center justify-center relative"
           >
-            <EarthModel />
+            <div className="w-full max-w-md">
+              <div className="relative aspect-square">
+                <div className="absolute inset-0 z-0 flex items-center justify-center">
+                  <div className="w-full h-full">
+                    <EarthModel />
+                  </div>
+                </div>
+              </div>
+            </div>
           </motion.div>
         </div>
       </div>
