@@ -1,7 +1,6 @@
 
 import { motion } from 'framer-motion';
-import PlantAnimation from './PlantAnimation';
-import ThreeScene from './ThreeScene';
+import EarthModel from './EarthModel';
 
 const About = () => {
   return (
@@ -42,17 +41,14 @@ const About = () => {
               ))}
             </div>
           </motion.div>
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5, delay: 0.4 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="space-y-6"
+            className="flex items-center justify-center"
           >
-            <div className="h-[300px] mb-4 bg-white rounded-lg shadow-md overflow-hidden">
-              <ThreeScene />
-            </div>
-            <PlantAnimation />
+            <EarthModel />
           </motion.div>
         </div>
       </div>

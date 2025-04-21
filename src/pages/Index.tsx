@@ -11,7 +11,7 @@ import Achievements from '../components/Achievements';
 import Experience from '../components/Experience';
 import WhyGIZ from '../components/WhyGIZ';
 import Footer from '../components/Footer';
-import SustainabilityGame from '../components/SustainabilityGame';
+import SustainabilityChallenge from '../components/SustainabilityChallenge';
 
 // Animation variants for section transitions
 const sectionVariants = {
@@ -85,7 +85,7 @@ const Index = () => {
         </motion.div>
         
         <motion.div variants={sectionVariants}>
-          <SustainabilityGame />
+          <SustainabilityChallenge />
         </motion.div>
         
         <motion.div variants={sectionVariants} className="bg-green-50 py-12 text-center">
