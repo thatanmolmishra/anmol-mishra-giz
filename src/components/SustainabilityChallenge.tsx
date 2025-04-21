@@ -3,7 +3,7 @@ import React, { useState, useRef } from "react";
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { Trash2, Recycling } from "lucide-react";
+import { Trash2, Recycle } from "lucide-react";
 
 type Item = {
   name: string;
@@ -161,7 +161,7 @@ const SustainabilityChallenge = () => {
                       ${touching === "recycle" ? "border-green-500 bg-green-100" : "border-green-300 bg-white hover:bg-green-50"}
                     `}
                   >
-                    <Recycling className="w-10 h-10 text-green-600 mb-1 group-hover:scale-110 transition-transform" />
+                    <Recycle className="w-10 h-10 text-green-600 mb-1 group-hover:scale-110 transition-transform" />
                     <span className="font-semibold text-green-700 text-md">Recycle Bin</span>
                   </div>
                   <div
@@ -216,3 +216,4 @@ const SustainabilityChallenge = () => {
 };
 
 export default SustainabilityChallenge;
+
