@@ -1,5 +1,5 @@
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Link } from 'react-router-dom';
 
@@ -12,6 +12,7 @@ import Experience from '../components/Experience';
 import WhyGIZ from '../components/WhyGIZ';
 import Footer from '../components/Footer';
 import SustainabilityChallenge from '../components/SustainabilityChallenge';
+import { Skeleton } from '../components/ui/skeleton';
 
 // Animation variants for section transitions
 const sectionVariants = {
@@ -28,6 +29,7 @@ const sectionVariants = {
 
 const Index = () => {
   const containerRef = useRef(null);
+  const [isLoading, setIsLoading] = useState(true);
   const { scrollYProgress } = useScroll({
     target: containerRef,
     offset: ["start start", "end end"]
@@ -36,9 +38,43 @@ const Index = () => {
   // Parallax effect for background
   const backgroundY = useTransform(scrollYProgress, [0, 1], ["0%", "20%"]);
   
+  // Simulate content loading
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 800);
+    
+    return () => clearTimeout(timer);
+  }, []);
+  
+  if (isLoading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-b from-green-50 to-white flex items-center justify-center">
+        <div className="container space-y-10 px-4">
+          <div className="space-y-2">
+            <Skeleton className="h-10 w-3/4 mx-auto" />
+            <Skeleton className="h-4 w-1/2 mx-auto" />
+          </div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div className="space-y-4">
+              <Skeleton className="h-6 w-3/4" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-full" />
+              <Skeleton className="h-4 w-2/3" />
+            </div>
+            <Skeleton className="h-60 rounded-xl" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <motion.div 
       ref={containerRef}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5 }}
       className="min-h-screen bg-white overflow-hidden relative"
     >
       {/* Fixed background with parallax effect */}

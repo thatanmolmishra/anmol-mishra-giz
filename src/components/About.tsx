@@ -1,6 +1,5 @@
 
 import { motion } from 'framer-motion';
-import EarthModel from './EarthModel';
 
 const About = () => {
   return (
@@ -46,14 +45,30 @@ const About = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
             viewport={{ once: true }}
-            className="flex items-center justify-center relative"
+            className="flex items-center justify-center"
           >
             <div className="w-full max-w-md">
-              <div className="relative aspect-square">
-                <div className="absolute inset-0 z-0 flex items-center justify-center">
-                  <div className="w-full h-full">
-                    <EarthModel />
-                  </div>
+              <div className="bg-gradient-to-br from-green-100 to-blue-100 rounded-2xl shadow-xl p-8 h-full">
+                <div className="space-y-6">
+                  <motion.div 
+                    initial={{ scale: 0.9, opacity: 0 }}
+                    whileInView={{ scale: 1, opacity: 1 }}
+                    transition={{ duration: 0.7 }}
+                    viewport={{ once: true }}
+                    className="text-center"
+                  >
+                    <span className="text-9xl">🌱</span>
+                    <h3 className="text-xl font-bold text-green-800 mt-4">Sustainable Development</h3>
+                  </motion.div>
+                  <motion.p 
+                    initial={{ y: 20, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.7, delay: 0.2 }}
+                    viewport={{ once: true }}
+                    className="text-gray-700 text-center"
+                  >
+                    I'm committed to environmental consciousness and sustainable development practices in all my projects and professional work.
+                  </motion.p>
                 </div>
               </div>
             </div>
