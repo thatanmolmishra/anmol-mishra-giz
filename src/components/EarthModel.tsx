@@ -45,7 +45,7 @@ function EarthAtmosphere() {
 }
 
 const EarthModel = () => (
-  <div className="w-full h-72 bg-black rounded-lg overflow-hidden shadow-xl">
+  <div className="w-full h-72 bg-black rounded-lg overflow-hidden shadow-xl select-none">
     <Canvas camera={{ position: [0, 0, 3.5], fov: 55 }}>
       <ambientLight intensity={0.6} />
       <directionalLight position={[5, 3, 5]} intensity={1.1} />
@@ -53,7 +53,16 @@ const EarthModel = () => (
       <EarthClouds />
       <EarthAtmosphere />
       <Stars radius={8} depth={40} count={1150} factor={0.3} saturation={0.1} fade speed={2}/>
-      <OrbitControls enablePan={false} autoRotate autoRotateSpeed={0.7} minDistance={2.2} maxDistance={5} />
+      <OrbitControls
+        enablePan={false}
+        minDistance={2.2}
+        maxDistance={5}
+        enableZoom={true}
+        autoRotate={false}
+        enableDamping={true}
+        dampingFactor={0.12}
+        rotateSpeed={0.8}
+      />
     </Canvas>
   </div>
 );
