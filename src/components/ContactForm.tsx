@@ -1,11 +1,10 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { useForm } from 'react-hook-form';
 import * as z from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
 import { Send } from 'lucide-react';
-import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
@@ -20,7 +19,7 @@ const formSchema = z.object({
 
 const ContactForm = () => {
   const { toast } = useToast();
-  
+
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -31,19 +30,45 @@ const ContactForm = () => {
     },
   });
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
-    // In a real application, this would send an email
-    console.log(values);
-    
-    // Simulate form submission
-    setTimeout(() => {
-      toast({
-        title: "Message sent!",
-        description: `Thanks ${values.name}, your message has been sent to anmolmishra908@gmail.com`,
+  const onSubmit = async (values: z.infer<typeof formSchema>) => {
+    const formData = {
+      access_key: "3cfa32f5-bac6-4120-b517-528d1e89b105",
+      ...values,
+      botcheck: "", // Optional honeypot
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
       });
-      form.reset();
-    }, 1000);
-  }
+
+      const result = await response.json();
+
+      if (result.success) {
+        toast({
+          title: "Message sent!",
+          description: `Thanks ${values.name}, your message has been sent to Anmol Mishra succesfully`,
+        });
+        form.reset();
+      } else {
+        toast({
+          title: "Failed to send",
+          description: result.message || "Something went wrong.",
+          variant: "destructive",
+        });
+      }
+    } catch (error) {
+      toast({
+        title: "Network error",
+        description: "Please try again later.",
+        variant: "destructive",
+      });
+    }
+  };
 
   return (
     <section id="contact" className="py-20">
@@ -57,7 +82,7 @@ const ContactForm = () => {
         >
           Get In Touch
         </motion.h2>
-        
+
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -81,7 +106,7 @@ const ContactForm = () => {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="email"
@@ -96,7 +121,7 @@ const ContactForm = () => {
                   )}
                 />
               </div>
-              
+
               <FormField
                 control={form.control}
                 name="subject"
@@ -110,7 +135,7 @@ const ContactForm = () => {
                   </FormItem>
                 )}
               />
-              
+
               <FormField
                 control={form.control}
                 name="message"
@@ -121,17 +146,14 @@ const ContactForm = () => {
                       <Textarea 
                         placeholder="Type your message here..." 
                         className="min-h-[150px]" 
-                        {...field} 
+                        {...field}
                       />
                     </FormControl>
-                    <FormDescription>
-                      Your message will be sent to anmolmishra908@gmail.com
-                    </FormDescription>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              
+
               <Button type="submit" className="w-full md:w-auto">
                 <Send className="mr-2 h-4 w-4" /> Send Message
               </Button>

@@ -4,46 +4,93 @@ import { Briefcase } from 'lucide-react';
 
 const experiences = [
   {
-    title: "Senior Software Engineer",
-    company: "Tech Corp",
-    period: "2021 - Present",
-    description: "Led development of multiple web applications using React and Node.js",
-    logo: "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=100&h=100",
+    title: "Associate Product Manager",
+    company: "Mind Inc",
+    period: "May 2024 – Aug 2024",
+    description: "",
+    logo: "https://media.licdn.com/dms/image/v2/C560BAQGrb5vzN7hchw/company-logo_200_200/company-logo_200_200/0/1670897624888/mindincsoftware_logo?e=2147483647&v=beta&t=TUGBqhy3KSsfUpV_NfUhonX4cVVA9PxMPgbrJEVefpw",
     achievements: [
-      "Improved application performance by 40%",
-      "Led a team of 5 developers",
-      "Implemented CI/CD pipelines"
-    ]
+      "Conducted 10+ SWOT analyses and market studies, uncovering key growth opportunities that shaped Go-to-Market strategies for F&B products.",
+      "Designed and developed the CozyPM website front-end using React, reducing page load time by 45% and improving Core Web Vitals.",
+      "Analyzed customer data and market trends using SQL and Excel, driving data-backed decisions that improved product feasibility assessments by 60%.",
+      ]
   },
   {
-    title: "Full Stack Developer",
-    company: "Innovation Labs",
-    period: "2019 - 2021",
-    description: "Developed and maintained various web applications",
-    logo: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=100&h=100",
-    achievements: [
-      "Built RESTful APIs using Node.js",
-      "Developed front-end using React and Redux",
-      "Implemented authentication system"
-    ]
+    title: "Student Intern",
+    company: "IBM",
+    period: "Oct 2021 – Nov 2021",
+    description: "",
+    logo: "https://s3-symbol-logo.tradingview.com/international-bus-mach--600.png",
+    achievements:  [
+      "Spearheaded Paylo app wireframing, driving a 20% reduction in user expenses.",
+      "Engineered Notification Alerts for real-time budget updates and financial insights and orchestrated a user-friendly interface, yielding a 15% increase in user engagement",
+      "Completed end-to-end project lifecycle within two weeks, showcasing rapid problem-solving skills and presented the wireframe to a global panel, including IBM VP and CBSE secretaries",
+      ]
   },
   {
-    title: "Junior Developer",
-    company: "StartUp Inc",
-    period: "2018 - 2019",
-    description: "Worked on frontend development using React",
-    logo: "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=100&h=100",
+    title: "Global 3rd Place Winner",
+    company: "GRUEN: Green Urban Environments",
+    period: "Mar 2021 – Nov 2021",
+    description: "",
+    logo: "https://i.ytimg.com/vi/p8iuc0-oPdc/maxresdefault.jpg",
     achievements: [
-      "Contributed to UI/UX improvements",
-      "Fixed critical bugs in production",
-      "Participated in code reviews"
-    ]
+      " Secured 3rd place globally among 100+ participants from Europe and Asia in this Erasmus+ Programme of the European Union-funded sustainability design competition.",
+      "Led research on sustainability challenges in Indian cities and co-designed a “green city” model, presented at the GRUEN eConference to 25+ policymakers, experts, and educators.",
+      
+      ]
+  },
+  {
+    title: "Student Apprentice",
+    company: "Intel",
+    period: " Dec 2020 – Jan 2021",
+    description: "",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQIwWDmuwTxQJzzzDGP5hcK6m8iU-TPJJoLhg&s",
+    achievements: [
+      "Excelled in a two-month bootcamp as part of Intel’s AI for Youth’ program, specializing in data science, computer vision, and NLP.",
+      "Engineered ”Granger,” a multilingual chatbot, achieving a 30% efficiency boost in data extraction through Beautiful Soup Library.",
+      "Applied AI skills to contribute to impactful social solutions, aligning with the program’s goal of nurturing youth expertise in cutting-edge technology",
+      ]
+  },
+  {
+    title: "Operations & Execution Manager",
+    company: "International Global Conference (IGC) MUN India",
+    period: " September 2023 – December 2024",
+    description: "",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnjnoTZKVjUK6mlcqrCrnJwP-QFzny-rovyg&s",
+    achievements: [
+      "Directed a 40-member team, managing logistics, data systems, and coordination for 150+ delegates.",
+      "Collaborated with 15 departments to ensure smooth operations, while embedding sustainability and global policy themes across all committees",
+      "Fostered meaningful dialogue on SDGs, climate diplomacy, and inclusive development, ensuring delegates upheld the spirit of sustainability and international cooperation.",
+      ]
+  },
+  {
+    title: "Panelist — Chat with Purpose: Coding for SDGs",
+    company: "UN75: 2020 and Beyond — 1M1B x AWS — SDG2030",
+    period: " October 2021",
+    description: "",
+    logo: "https://www.edf-feph.org/content/uploads/2019/09/SDG-logo.png",
+    achievements: [
+      "Featured as a youth panelist in a global session on coding for UN Sustainable Development Goals, with 110K+ viewers and 15 Million+ digital impressions.",
+      "Discussed tech-driven social impact using Scratch, ASCII, and unplugged coding for SDG-aligned initiatives.",
+      "Shared the panel with Sunil PP (Head of Education & NPOs, AWS India & South Asia) and Amit Nevatia (Education Program Lead, AWS).",
+      ]
+  },
+  {
+    title: "NSS Volunteer",
+    company: "NSS : National Service Scheme",
+    period: "April 2020 – July 2023",
+    description: "",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSsXKkz-j7h6bQteBoqkdAgEpoFMKvjW2Yrpw&s",
+    achievements: [
+      "Contributed to 15+ community service projects, including health camps and sanitation drives, benefiting over 500 local residents.",
+      "Led a team of 10+ volunteers during an NSS Camp focused on health and hygiene, earning recognition for consistent community impact",
+      ]
   }
 ];
 
 const Experience = () => {
   return (
-    <section id="experience" className="py-14 bg-gradient-to-br from-green-50 to-green-100 relative">
+    <section id="experience" className="py-14 bg-gradient-to-br from-green-90 to-green-100 relative">
       <div className="container !max-w-2xl md:!max-w-3xl mx-auto">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}

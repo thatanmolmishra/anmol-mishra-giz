@@ -1,85 +1,94 @@
-
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, Award, Medal, Star, Clock, CheckCheck } from 'lucide-react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
+import { Button } from "@/components/ui/button";
+import { Link } from 'react-router-dom';
 
 // Extended achievements list
 const allAchievements = [
   {
-    icon: <Trophy className="h-8 w-8 text-yellow-500" />,
-    title: "First Achievement",
-    description: "Description of your first major achievement with extended details about the impact and significance of this recognition.",
+    image:"src/components/src/sdg1.png" ,
+    title: "Panelist — Chat with Purpose: Coding for SDGs",
+    description: "I was featured as a youth panelist in *Chat with Purpose: Coding for SDGs*, a global session under the UN75 initiative organized by 1M1B in collaboration with AWS and SDG2030. The session garnered over 110K viewers and 15 million+ digital impressions. I shared insights on leveraging Scratch, ASCII, and unplugged coding to create tech-driven solutions aligned with the UN Sustainable Development Goals. The panel also included industry leaders like Sunil PP (Head of Education & NPOs, AWS India & South Asia) and Amit Nevatia (Education Program Lead, AWS).",
     organization: "Tech Excellence Awards",
-    date: "January 2022",
-    logo: "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=100&h=100",
+    date: "",
+    logo: "https://international-partnerships.ec.europa.eu/sites/default/files/styles/oe_theme_medium_no_crop/public/2022-05/sdg-wheel-landscape-white-bg_en.png?itok=XaUGogrB",
     gallery: [
-      "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?auto=format&fit=crop&w=800&h=600",
-      "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=800&h=600"
+      "src/components/src/sdg1.png",
+      "src/components/src/sdg2.png",
     ]
   },
   {
-    icon: <Award className="h-8 w-8 text-green-600" />,
-    title: "Second Achievement",
-    description: "Description of your second major achievement with additional context about how this accomplishment contributed to your professional development.",
-    organization: "Digital Innovation Hub",
-    date: "March 2022",
-    logo: "https://images.unsplash.com/photo-1487058792275-0ad4aaf24ca7?auto=format&fit=crop&w=100&h=100",
+    image: "https://i.ytimg.com/vi/p8iuc0-oPdc/sddefault.jpg",
+    title: "Global 3rd Place Winner",
+    description: "As part of the GRUEN initiative under the Erasmus+ Programme, I secured 3rd place globally among 100+ participants from Europe and Asia in a sustainability-focused design competition. I led research on urban environmental challenges in Indian cities and co-developed a scalable “green city” model, which was presented at the GRUEN eConference to an audience of 25+ policymakers, experts, and educators.",
+    organization: "GRUEN : Green Urban Environments",
+    date: "",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3VnLZeFYxhX6MU1O9aWa3_rN596vduEdpeQ&s",
     gallery: [
-      "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b?auto=format&fit=crop&w=800&h=600",
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=800&h=600"
+      "src/components/src/grun2.png",
+      "src/components/src/grun1.png",
     ]
   },
   {
-    icon: <Medal className="h-8 w-8 text-blue-500" />,
-    title: "Third Achievement",
-    description: "Description of your third major achievement with detailed information about the challenge overcome and skills demonstrated.",
-    organization: "Global Tech Summit",
-    date: "June 2022",
-    logo: "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=100&h=100",
+    image: "https://www.nct.ac.in/assets/images/nss/nss-3.jpg",
+    title: "NSS Volunteer",
+    description: "As a dedicated NSS Volunteer, I contributed to over 15 community service initiatives including health camps, sanitation drives, and awareness campaigns, positively impacting more than 500 local residents. I led a team of 10+ volunteers during a focused NSS Camp on health and hygiene, earning recognition for leadership and meaningful community engagement.",
+    organization: "National Service Scheme",
+    date: "",
+    logo: "https://trinitycollegejal.com/wp-content/uploads/2020/10/nss-logo.png",
     gallery: [
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=800&h=600",
-      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?auto=format&fit=crop&w=800&h=600"
+      "src/components/src/nss1.jpg",
+      "src/components/src/nss2.jpg",
     ]
   },
   {
-    icon: <Star className="h-8 w-8 text-purple-500" />,
-    title: "Innovation Award",
-    description: "Recognized for developing a groundbreaking solution that addressed significant industry challenges.",
-    organization: "Industry Innovation Forum",
-    date: "September 2022",
-    logo: "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=100&h=100",
+    image: "src/components/src/igc5.jpg",
+    title: "Operations & Execution Manager",
+    description: "As the Operations & Execution Manager for the International Global Conference (IGC) MUN India, I led a 40-member team, overseeing logistics, data systems, and coordination for over 150 international delegates. I worked closely with 15 departments to ensure seamless execution while embedding global policy themes and fostering meaningful discussions around SDGs, climate diplomacy, and inclusive development—ensuring each committee reflected the spirit of sustainability and international cooperation.",
+    organization: "International Global Conference (IGC)",
+    date: "",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnjnoTZKVjUK6mlcqrCrnJwP-QFzny-rovyg&s",
     gallery: [
-      "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=800&h=600",
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&h=600"
+      "src/components/src/igc1.JPG",
+      "src/components/src/igc2.jpg",
+      "src/components/src/igc5.jpg",
+      "src/components/src/igc2.PNG",
+
     ]
   },
   {
-    icon: <Clock className="h-8 w-8 text-amber-500" />,
-    title: "Performance Excellence",
-    description: "Achieved exceptional results by optimizing processes and implementing efficient workflows.",
-    organization: "Performance Management Association",
-    date: "November 2022",
-    logo: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=100&h=100",
+    image: "src/components/src/red3.jpg",
+    title: "Special Guest – Independence Day at Red Fort (NITI Aayog, Govt. of India)",
+    description: "Invited as a Special Guest by NITI Aayog, Government of India, for the Independence Day celebrations at the iconic Red Fort, I had the extraordinary honor of witnessing the Prime Minister’s address up close and shaking hands with him—a truly unforgettable moment. This opportunity came as recognition for my project shortlisted under the Atal Innovation Mission (AIM) Marathon initiative. Being part of such a historic national celebration filled me with immense pride and deepened my resolve to contribute meaningfully to India's growth and progress.",
+    organization: "Government of India",
+    date: "",
+    logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg_iJUajtQMR6w_jl_rhLtkF3W6OdBHPitAA&s",
     gallery: [
-      "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&w=800&h=600",
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&h=600"
+      "src/components/src/red1.jpg",
+      "src/components/src/red2.jpg",
+      "src/components/src/red3.jpg",
+      "src/components/src/red4.jpg",
     ]
   },
   {
-    icon: <CheckCheck className="h-8 w-8 text-teal-500" />,
-    title: "Quality Assurance Award",
-    description: "Recognized for maintaining exceptional standards in software development and testing procedures.",
-    organization: "Quality Assurance Institute",
-    date: "February 2023",
-    logo: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=100&h=100",
+    image: "src/components/src/ozone1.jpg",
+    title: "1st Place – Ozone Oasis: Safeguarding Tomorrow | Sustainability Innovation Challenge",
+    description: "I was honored to secure 1st position in the university-wide “Ozone Oasis: Safeguarding Tomorrow” event—an initiative focused on promoting environmental sustainability through innovation. Recognized by Prof. Dr. Adarsh Pal Vig (Chairman, Punjab Pollution Control Board) and Ashok Kumar Mittal (Member of Parliament & Chancellor, LPU), this achievement reaffirmed my commitment to environmental responsibility and positive impact.",
+    organization: "",
+    date: "",
+    logo: "",
     gallery: [
-      "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=800&h=600",
-      "https://images.unsplash.com/photo-1496171367470-9ed9a91ea931?auto=format&fit=crop&w=800&h=600"
+      "src/components/src/ozone1.jpg",
+      "src/components/src/ozone2.jpg",
+      "src/components/src/ozone3.jpg",
+      "src/components/src/ozone4.jpg",
     ]
-  }
+  },
+
 ];
 
 const AllAchievements = () => {
@@ -106,8 +115,12 @@ const AllAchievements = () => {
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   className="bg-white p-6 rounded-lg shadow-md border border-green-100 hover:shadow-lg transition-shadow cursor-pointer"
                 >
-                  <div className="flex items-center justify-center mb-4">
-                    {achievement.icon}
+                  <div className="relative h-48 overflow-hidden">
+                    <img 
+                      src={achievement.image}
+                      alt={achievement.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
                   </div>
                   <div className="flex items-center gap-3 mb-4">
                     <img 

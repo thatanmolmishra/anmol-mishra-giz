@@ -9,7 +9,7 @@ const Resume = () => {
   const handleDownload = () => {
     // Create a dummy PDF download
     const link = document.createElement('a');
-    link.href = 'data:application/pdf;base64,JVBERi0xLjcNCiW1tbW1DQoxIDAgb2JqDQo8PC9UeXBlL0NhdGFsb2cvUGFnZXMgMiAwIFIvTGFuZyhlbi1VUykgL1N0cnVjdFRyZWVSb290IDMwIDAgUi9NYXJrSW5mbzw8L01hcmtlZCB0cnVlPj4vTWV0YWRhdGEgOTAgMCBSL1ZpZXdlclByZWZlcmVuY2VzIDkxIDAgUj4+DQplbmRvYmo=';
+    link.href = 'https://drive.google.com/file/d/1xh734p7YU5fwd9q2uFD1Jn_0DWY3fOXX/view?usp=sharing';
     link.download = 'anmol_mishra_resume.pdf';
     
     toast({

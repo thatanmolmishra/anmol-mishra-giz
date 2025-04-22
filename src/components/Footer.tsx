@@ -1,5 +1,4 @@
-
-import { Github, Twitter, Linkedin, Mail } from 'lucide-react';
+import { GithubIcon, TwitterIcon, LinkedinIcon, MailIcon } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Footer = () => {
@@ -26,17 +25,17 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Connect</h3>
             <div className="flex space-x-4">
-              <a href="#" className="text-green-200 hover:text-white transition-colors">
-                <Github />
+              <a href="https://github.com/thatanmolmishra" className="text-green-200 hover:text-white transition-colors">
+                <GithubIcon />
+              </a>
+              <a href="https://x.com/thatanmolmishra?t=uquVu6Tiu-r-uxC3orkH5g&s=08" className="text-green-200 hover:text-white transition-colors">
+                <TwitterIcon />
+              </a>
+              <a href="https://www.linkedin.com/in/that-anmol-mishra/" className="text-green-200 hover:text-white transition-colors">
+                <LinkedinIcon />
               </a>
               <a href="#" className="text-green-200 hover:text-white transition-colors">
-                <Twitter />
-              </a>
-              <a href="#" className="text-green-200 hover:text-white transition-colors">
-                <Linkedin />
-              </a>
-              <a href="#" className="text-green-200 hover:text-white transition-colors">
-                <Mail />
+                <MailIcon />
               </a>
             </div>
           </div>

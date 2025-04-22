@@ -7,9 +7,9 @@ import ProjectDialog from './ProjectDialog';
 
 const projects = [
   {
-    title: "Portfolio Website",
-    description: "A personal portfolio website built with React, Three.js, and Tailwind CSS",
-    tech: ["React", "Three.js", "Tailwind CSS", "Framer Motion"],
+    title: "MediVista",
+    description: "MediVista is an AI-powered healthcare solution designed to predict diseases based on user-provided symptoms. It leverages machine learning models to achieve high accuracy in diagnosis, offering users a reliable preliminary health assessment tool. To ensure greater accessibility, especially for visually impaired or non-technical users, the system includes a voice-enabled interface. Additionally, it incorporates natural language processing and cross-validation techniques to improve prediction accuracy and ensure consistent, generalizable performance across diverse symptom inputs. The platform encourages early detection and awareness by providing immediate feedback and possible diagnoses. MediVista empowers users to make informed decisions about their health and seek timely medical attention.",
+    tech: ["Python", "NLP", "CSV", "pandas","pyttsx3","scikit-learn"],
     links: {
       github: "#",
       live: "#"
@@ -17,31 +17,27 @@ const projects = [
     organization: "Personal Project",
     fullDescription: "This is a comprehensive portfolio website showcasing my skills, experience, and projects. It features interactive 3D elements built with Three.js, smooth animations powered by Framer Motion, and a responsive design implemented with Tailwind CSS. The site includes sections for about me, projects, experience, achievements, and contact information.",
     images: [
-      "https://images.unsplash.com/photo-1498050108023-c5249f4df085",
-      "https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d", 
-      "https://images.unsplash.com/photo-1581091226825-a6a2a5aee158"
+      "/src/components/src/MediVista.jpg"
     ]
   },
   {
-    title: "E-commerce Platform",
-    description: "A full-featured online store with product management and payment processing",
+    title: "Satva",
+    description: "Satva – A Step to Sustainability is an innovative project focused on promoting agricultural sustainability through eco-friendly and data-driven practices. The project aims to optimize resource usage—such as water, soil, and energy—while enhancing crop productivity and reducing the environmental footprint. By integrating organic farming methods, climate-resilient crop strategies, and technology-based solutions, Satva empowers farmers to adopt sustainable techniques that ensure long-term viability. The initiative also emphasizes community engagement and awareness, aligning with the goals of SDG 2 (Zero Hunger) and SDG 13 (Climate Action), making it a significant step toward a greener and more sustainable future in agriculture.",
     tech: ["React", "Node.js", "MongoDB", "Stripe", "Express"],
     links: {
       github: "#",
       live: "#"
     },
-    organization: "Tech Corp",
-    fullDescription: "Designed and developed a complete e-commerce solution with user authentication, product catalog, shopping cart functionality, and secure payment processing. The platform includes an admin dashboard for managing products, orders, and customer data. Built with a React frontend, Node.js backend, and MongoDB for data storage, with Stripe integration for handling payments.",
+    organization: "Satva",
+    fullDescription: "Satva – A Step to Sustainability is an innovative project focused on promoting agricultural sustainability through eco-friendly and data-driven practices. The project aims to optimize resource usage—such as water, soil, and energy—while enhancing crop productivity and reducing the environmental footprint. By integrating organic farming methods, climate-resilient crop strategies, and technology-based solutions, Satva empowers farmers to adopt sustainable techniques that ensure long-term viability. The initiative also emphasizes community engagement and awareness, aligning with the goals of SDG 2 (Zero Hunger) and SDG 13 (Climate Action), making it a significant step toward a greener and more sustainable future in agriculture.",
     images: [
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6", 
-      "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b",
-      "https://images.unsplash.com/photo-1518770660439-4636190af475"
+      "/src/components/src/Satva.jpg"
     ]
   },
   {
-    title: "Task Management App",
-    description: "A collaborative task manager with real-time updates and team features",
-    tech: ["TypeScript", "Next.js", "Firebase", "Tailwind CSS"],
+    title: "YogaFlix",
+    description: "Yogaflix is an AI-powered virtual yoga instructor developed during the COVID-19 pandemic to help individuals practice yoga safely and effectively from home. Built using Python, TensorFlow, and OpenCV for real-time pose detection and correction, along with a React.js frontend for a seamless user experience, the platform offers personalized yoga routines tailored to user skill levels. Yogaflix also features voice-guided meditation, breathing exercises, and a unique streak-based engagement system inspired by Snapchat to motivate users and build consistent wellness habits. Designed to be accessible across devices, the platform aimed to bridge the gap between technology and well-being, making yoga more inclusive, interactive, and engaging during times of physical isolation.",
+    tech: ["Python", "react.js", "OpenCV", "TensorFlow"],
     links: {
       github: "#",
       live: "#"
@@ -49,9 +45,7 @@ const projects = [
     organization: "Innovation Labs",
     fullDescription: "Created a productivity application that allows teams to manage tasks, track progress, and collaborate in real-time. Features include customizable workspaces, task assignments, due dates, labels, attachments, and activity logs. The app is built with Next.js and TypeScript for type safety, Firebase for real-time database and authentication, and Tailwind CSS for a clean, responsive UI.",
     images: [
-      "https://images.unsplash.com/photo-1518770660439-4636190af475",
-      "https://images.unsplash.com/photo-1488590528505-98d2b5aba04b", 
-      "https://images.unsplash.com/photo-1461749280684-dccba630e2f6"
+      "/src/components/src/Yogaflix.jpg"
     ]
   },
 ];
@@ -60,14 +54,14 @@ const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
 
   return (
-    <section id="projects" className="py-20">
+    <section id="projects" className="bg-green-800 text-white py-12">
       <div className="container">
         <motion.h2 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold text-center mb-12 text-green-800"
+          className="text-3xl md:text-4xl font-bold text-center mb-12 text-white"
         >
           My Projects
         </motion.h2>

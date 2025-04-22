@@ -101,15 +101,7 @@ const ProjectDialog = ({ isOpen, onClose, project }: ProjectDialogProps) => {
         </div>
         
         <div className="mt-6 flex gap-4 justify-end">
-          <Button variant="outline" onClick={onClose}>
-            Close
-          </Button>
-          <a href={project.links.live} target="_blank" rel="noopener noreferrer">
-            <Button variant="default">Visit Live</Button>
-          </a>
-          <a href={project.links.github} target="_blank" rel="noopener noreferrer">
-            <Button variant="secondary">View Code</Button>
-          </a>
+
         </div>
       </DialogContent>
     </Dialog>
