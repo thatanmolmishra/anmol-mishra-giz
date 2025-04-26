@@ -1,11 +1,19 @@
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Trophy, Award, Medal, Star, Clock, CheckCheck } from 'lucide-react';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
+import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger, DialogDescription } from "@/components/ui/dialog";
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { Button } from "@/components/ui/button";
 import { Link } from 'react-router-dom';
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel";
 
 // Extended achievements list
 const allAchievements = [
@@ -24,7 +32,7 @@ const allAchievements = [
   {
     image: "https://i.ytimg.com/vi/p8iuc0-oPdc/sddefault.jpg",
     title: "Global 3rd Place Winner",
-    description: "As part of the GRUEN initiative under the Erasmus+ Programme, I secured 3rd place globally among 100+ participants from Europe and Asia in a sustainability-focused design competition. I led research on urban environmental challenges in Indian cities and co-developed a scalable “green city” model, which was presented at the GRUEN eConference to an audience of 25+ policymakers, experts, and educators.",
+    description: "As part of the GRUEN initiative under the Erasmus+ Programme, I secured 3rd place globally among 100+ participants from Europe and Asia in a sustainability-focused design competition. I led research on urban environmental challenges in Indian cities and co-developed a scalable "green city" model, which was presented at the GRUEN eConference to an audience of 25+ policymakers, experts, and educators.",
     organization: "GRUEN : Green Urban Environments",
     date: "",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3VnLZeFYxhX6MU1O9aWa3_rN596vduEdpeQ&s",
@@ -63,7 +71,7 @@ const allAchievements = [
   {
     image: "src/components/src/red3.jpg",
     title: "Special Guest – Independence Day at Red Fort (NITI Aayog, Govt. of India)",
-    description: "Invited as a Special Guest by NITI Aayog, Government of India, for the Independence Day celebrations at the iconic Red Fort, I had the extraordinary honor of witnessing the Prime Minister’s address up close and shaking hands with him—a truly unforgettable moment. This opportunity came as recognition for my project shortlisted under the Atal Innovation Mission (AIM) Marathon initiative. Being part of such a historic national celebration filled me with immense pride and deepened my resolve to contribute meaningfully to India's growth and progress.",
+    description: "Invited as a Special Guest by NITI Aayog, Government of India, for the Independence Day celebrations at the iconic Red Fort, I had the extraordinary honor of witnessing the Prime Minister's address up close and shaking hands with him—a truly unforgettable moment. This opportunity came as recognition for my project shortlisted under the Atal Innovation Mission (AIM) Marathon initiative. Being part of such a historic national celebration filled me with immense pride and deepened my resolve to contribute meaningfully to India's growth and progress.",
     organization: "Government of India",
     date: "",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRg_iJUajtQMR6w_jl_rhLtkF3W6OdBHPitAA&s",
@@ -77,7 +85,7 @@ const allAchievements = [
   {
     image: "src/components/src/ozone1.jpg",
     title: "1st Place – Ozone Oasis: Safeguarding Tomorrow | Sustainability Innovation Challenge",
-    description: "I was honored to secure 1st position in the university-wide “Ozone Oasis: Safeguarding Tomorrow” event—an initiative focused on promoting environmental sustainability through innovation. Recognized by Prof. Dr. Adarsh Pal Vig (Chairman, Punjab Pollution Control Board) and Ashok Kumar Mittal (Member of Parliament & Chancellor, LPU), this achievement reaffirmed my commitment to environmental responsibility and positive impact.",
+    description: "I was honored to secure 1st position in the university-wide "Ozone Oasis: Safeguarding Tomorrow" event—an initiative focused on promoting environmental sustainability through innovation. Recognized by Prof. Dr. Adarsh Pal Vig (Chairman, Punjab Pollution Control Board) and Ashok Kumar Mittal (Member of Parliament & Chancellor, LPU), this achievement reaffirmed my commitment to environmental responsibility and positive impact.",
     organization: "",
     date: "",
     logo: "",
@@ -122,7 +130,7 @@ const AllAchievements = () => {
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
                   </div>
-                  <div className="flex items-center gap-3 mb-4">
+                  <div className="flex items-center gap-3 mb-4 mt-4">
                     <img 
                       src={achievement.logo}
                       alt={achievement.organization}
@@ -134,7 +142,7 @@ const AllAchievements = () => {
                       <p className="text-xs text-gray-500">{achievement.date}</p>
                     </div>
                   </div>
-                  <p className="text-gray-600">{achievement.description}</p>
+                  <p className="text-gray-600 line-clamp-3">{achievement.description}</p>
                 </motion.div>
               </DialogTrigger>
               <DialogContent className="max-w-4xl">
@@ -157,16 +165,29 @@ const AllAchievements = () => {
                 </DialogHeader>
                 <div className="mt-4">
                   <p className="text-gray-700 mb-6">{achievement.description}</p>
-                  <div className="grid grid-cols-2 gap-4">
-                    {achievement.gallery.map((image, idx) => (
-                      <img
-                        key={idx}
-                        src={image}
-                        alt={`Achievement gallery ${idx + 1}`}
-                        className="rounded-lg w-full h-48 object-cover"
-                      />
-                    ))}
-                  </div>
+                  
+                  <Carousel className="w-full">
+                    <CarouselContent>
+                      {achievement.gallery.map((image, idx) => (
+                        <CarouselItem key={idx}>
+                          <div className="aspect-video bg-gray-100 rounded-lg overflow-hidden">
+                            <img
+                              key={idx}
+                              src={image}
+                              alt={`Achievement gallery ${idx + 1}`}
+                              className="w-full h-full object-cover"
+                            />
+                          </div>
+                        </CarouselItem>
+                      ))}
+                    </CarouselContent>
+                    {achievement.gallery.length > 1 && (
+                      <>
+                        <CarouselPrevious className="left-2" />
+                        <CarouselNext className="right-2" />
+                      </>
+                    )}
+                  </Carousel>
                 </div>
               </DialogContent>
             </Dialog>
