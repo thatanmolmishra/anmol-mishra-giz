@@ -46,7 +46,7 @@ const ProjectDialog = ({ isOpen, onClose, project }: ProjectDialogProps) => {
           <img 
             src={project.images[currentImageIndex]}
             alt={`${project.title} screenshot ${currentImageIndex + 1}`}
-            className="w-full h-full object-cover"
+            className="w-full h-full object-cover transition-transform duration-300"
           />
           
           {project.images.length > 1 && (
