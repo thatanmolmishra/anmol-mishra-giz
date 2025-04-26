@@ -1,8 +1,14 @@
-
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight, Github, ExternalLink } from "lucide-react";
+import { Github, ExternalLink } from "lucide-react";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from "@/components/ui/carousel"
 
 interface ProjectDialogProps {
   isOpen: boolean;
@@ -22,16 +28,6 @@ interface ProjectDialogProps {
 }
 
 const ProjectDialog = ({ isOpen, onClose, project }: ProjectDialogProps) => {
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
-  const nextImage = () => {
-    setCurrentImageIndex((prev) => (prev + 1) % project.images.length);
-  };
-
-  const prevImage = () => {
-    setCurrentImageIndex((prev) => (prev - 1 + project.images.length) % project.images.length);
-  };
-
   return (
     <Dialog open={isOpen} onOpenChange={(open) => !open && onClose()}>
       <DialogContent className="sm:max-w-[900px] max-h-[90vh] overflow-y-auto">
@@ -42,43 +38,28 @@ const ProjectDialog = ({ isOpen, onClose, project }: ProjectDialogProps) => {
           </DialogDescription>
         </DialogHeader>
         
-        <div className="mt-4 relative aspect-video bg-gray-100 rounded-md overflow-hidden">
-          <img 
-            src={project.images[currentImageIndex]}
-            alt={`${project.title} screenshot ${currentImageIndex + 1}`}
-            className="w-full h-full object-cover transition-transform duration-300"
-          />
-          
-          {project.images.length > 1 && (
-            <>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={prevImage}
-                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full"
-              >
-                <ChevronLeft />
-              </Button>
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={nextImage}
-                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white rounded-full"
-              >
-                <ChevronRight />
-              </Button>
-              <div className="absolute bottom-2 left-1/2 -translate-x-1/2 flex gap-1">
-                {project.images.map((_, index) => (
-                  <div
-                    key={index}
-                    className={`w-2 h-2 rounded-full ${
-                      index === currentImageIndex ? "bg-green-600" : "bg-gray-300"
-                    }`}
-                  />
-                ))}
-              </div>
-            </>
-          )}
+        <div className="mt-4">
+          <Carousel className="w-full">
+            <CarouselContent>
+              {project.images.map((image, index) => (
+                <CarouselItem key={index}>
+                  <div className="relative aspect-video bg-gray-100 rounded-md overflow-hidden">
+                    <img 
+                      src={image}
+                      alt={`${project.title} screenshot ${index + 1}`}
+                      className="w-full h-full object-cover"
+                    />
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            {project.images.length > 1 && (
+              <>
+                <CarouselPrevious className="left-2" />
+                <CarouselNext className="right-2" />
+              </>
+            )}
+          </Carousel>
         </div>
         
         <div className="mt-4">
