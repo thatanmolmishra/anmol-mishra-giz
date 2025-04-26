@@ -2,7 +2,7 @@
 import { useState } from 'react';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
-import { ChevronLeft, ChevronRight } from "lucide-react";
+import { ChevronLeft, ChevronRight, Github, ExternalLink } from "lucide-react";
 
 interface ProjectDialogProps {
   isOpen: boolean;
@@ -101,7 +101,22 @@ const ProjectDialog = ({ isOpen, onClose, project }: ProjectDialogProps) => {
         </div>
         
         <div className="mt-6 flex gap-4 justify-end">
-
+          {project.links.github && (
+            <Button variant="outline" className="flex items-center gap-2" asChild>
+              <a href={project.links.github} target="_blank" rel="noopener noreferrer">
+                <Github size={18} />
+                GitHub
+              </a>
+            </Button>
+          )}
+          {project.links.live && (
+            <Button className="flex items-center gap-2 bg-green-700 hover:bg-green-800" asChild>
+              <a href={project.links.live} target="_blank" rel="noopener noreferrer">
+                <ExternalLink size={18} />
+                View Live
+              </a>
+            </Button>
+          )}
         </div>
       </DialogContent>
     </Dialog>
