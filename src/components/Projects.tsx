@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Github, ExternalLink } from 'lucide-react';
-import ProjectDialog from './ProjectDialog';
 
 const projects = [
   {
@@ -51,8 +50,6 @@ const projects = [
 ];
 
 const Projects = () => {
-  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
-
   return (
     <section id="projects" className="bg-green-800 text-white py-12">
       <div className="container">
@@ -73,8 +70,7 @@ const Projects = () => {
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
-              className="cursor-pointer group"
-              onClick={() => setSelectedProject(project)}
+              className="group"
             >
               <Card className="h-full border-green-100 hover:border-green-300 transition-all">
                 <div className="h-40 overflow-hidden">
@@ -103,10 +99,10 @@ const Projects = () => {
                   </div>
                 </CardContent>
                 <CardFooter className="flex justify-end gap-4">
-                  <a href={project.links.github} className="text-gray-600 hover:text-green-700 transition" onClick={(e) => e.stopPropagation()}>
+                  <a href={project.links.github} className="text-gray-600 hover:text-green-700 transition">
                     <Github size={20} />
                   </a>
-                  <a href={project.links.live} className="text-gray-600 hover:text-green-700 transition" onClick={(e) => e.stopPropagation()}>
+                  <a href={project.links.live} className="text-gray-600 hover:text-green-700 transition">
                     <ExternalLink size={20} />
                   </a>
                 </CardFooter>
@@ -115,14 +111,6 @@ const Projects = () => {
           ))}
         </div>
       </div>
-      
-      {selectedProject && (
-        <ProjectDialog
-          isOpen={!!selectedProject}
-          onClose={() => setSelectedProject(null)}
-          project={selectedProject}
-        />
-      )}
     </section>
   );
 };
