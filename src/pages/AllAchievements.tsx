@@ -32,7 +32,7 @@ const allAchievements = [
   {
     image: "https://i.ytimg.com/vi/p8iuc0-oPdc/sddefault.jpg",
     title: "Global 3rd Place Winner",
-    description: "As part of the GRUEN initiative under the Erasmus+ Programme, I secured 3rd place globally among 100+ participants from Europe and Asia in a sustainability-focused design competition. I led research on urban environmental challenges in Indian cities and co-developed a scalable "green city" model, which was presented at the GRUEN eConference to an audience of 25+ policymakers, experts, and educators.",
+    description: "As part of the GRUEN initiative under the Erasmus+ Programme, I secured 3rd place globally among 100+ participants from Europe and Asia in a sustainability-focused design competition. I led research on urban environmental challenges in Indian cities and co-developed a scalable \"green city\" model, which was presented at the GRUEN eConference to an audience of 25+ policymakers, experts, and educators.",
     organization: "GRUEN : Green Urban Environments",
     date: "",
     logo: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3VnLZeFYxhX6MU1O9aWa3_rN596vduEdpeQ&s",
@@ -85,7 +85,7 @@ const allAchievements = [
   {
     image: "src/components/src/ozone1.jpg",
     title: "1st Place – Ozone Oasis: Safeguarding Tomorrow | Sustainability Innovation Challenge",
-    description: "I was honored to secure 1st position in the university-wide "Ozone Oasis: Safeguarding Tomorrow" event—an initiative focused on promoting environmental sustainability through innovation. Recognized by Prof. Dr. Adarsh Pal Vig (Chairman, Punjab Pollution Control Board) and Ashok Kumar Mittal (Member of Parliament & Chancellor, LPU), this achievement reaffirmed my commitment to environmental responsibility and positive impact.",
+    description: "I was honored to secure 1st position in the university-wide \"Ozone Oasis: Safeguarding Tomorrow\" event—an initiative focused on promoting environmental sustainability through innovation. Recognized by Prof. Dr. Adarsh Pal Vig (Chairman, Punjab Pollution Control Board) and Ashok Kumar Mittal (Member of Parliament & Chancellor, LPU), this achievement reaffirmed my commitment to environmental responsibility and positive impact.",
     organization: "",
     date: "",
     logo: "",
